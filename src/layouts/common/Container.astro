@@ -1,5 +1,5 @@
-<section class="max-w-full xl:max-w-6xl 2xl:max-w-8xl mx-auto px-5 py-44 flex flex-col">
-    <span class="inline-block uppercase font-semibold font-archivo pl-5 mb-2 relative">sobre nosotros</span>
+<section class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 py-44 flex flex-col">
+    <span class="inline-block uppercase font-bold 3xl:text-2xl 4xl:text-3xl font-archivo pl-5 mb-2 3xl:mb-5 4xl:mb-7 relative">sobre nosotros</span>
     <slot/>
 </section>
 
@@ -16,5 +16,11 @@
         width: 1000%;
         left: -1000%;
         background: #4BB3FD;
+    }
+
+    @media screen and (min-width: 1920px) {
+        span::before {
+            height: 4px;
+        }
     }
 </style>
