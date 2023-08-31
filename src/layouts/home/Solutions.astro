@@ -1,0 +1,49 @@
+---
+import LinkButton from "../../components/common/LinkButton.astro";
+import ParagraphSection from "../../components/common/ParagraphSection.astro";
+import TitleSection from "../../components/common/TitleSection.astro";
+import ElementListServices from "../../components/home/ElementListServices.astro";
+import Container from "../common/Container.astro";
+
+---
+
+<Container subtitleText="soluciones" subtitleTextLineColor="#4BB3FD" subtitleTextColor="text-white" background="bg-reciclacel_dark_blue">
+    <div class="w-full flex flex-col gap-9">
+        <div class="flex flex-row w-full justify-between items-center gap-10">
+            <TitleSection text1="equipo y personal<br>" text2="especializado" textColor1="text-white" textColor2="text-reciclacel_green" />
+            <div class="w-fit hidden md:block"><LinkButton text="nuestros servicios" link="/services"/></div>
+        </div>
+        <div class="relative max-w-full h-0 overflow-hidden pb-[56.25%]">
+            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/-1h7rJUXXu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-10 sm:mt-20">
+            <div class="basis-1/2 flex flex-col gap-10">
+                <ParagraphSection
+                    text="Recolección de SCRAP, reciclaje de plástico y transporte de entrega en las cajas, cubetas y productos personalizados."
+                    textColor="text-white"
+                />
+                <ul class="w-full grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <ElementListServices text="reciclaje"/>
+                    <ElementListServices text="personalización"/>
+                    <ElementListServices text="inyección de plástico"/>
+                    <ElementListServices text="capacitación"/>
+                    <ElementListServices text="logística"/>
+                </ul>
+            </div>
+            <div class="basis-1/2 p-8 sm:p-[60px] bg-[#C9D2DE]">
+                <q class="text-xl sm:text-[26px] 3xl:text-3xl 4xl:text-4xl font-archivo font-bold leading-6 sm:leading-8 tracking-tighter" style="quotes: none;">En Reciclacel pudimos tener una pronta respuesta sobre nuestros requerimientos y su logística nos ayudó a cumplir con nuestra meta.</q>
+                <div class="flex w-full justify-between items-center mt-5">
+                    <div class="flex flex-col gap-1 font-archivo text-lg sm:text-xl 3xl:text-2xl 4xl:text-3xl">
+                        <span class="font-bold">René R.</span>
+                        <span >Jefe de distribución</span>
+                    </div>
+                    <svg class="hidden sm:block" width="83" height="73" viewBox="0 0 83 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M47 0V36.5H70.9999C70.9999 49.9171 60.2333 60.8333 47 60.8333V73C66.8516 73 83 56.6273 83 36.5V0L47 0Z" fill="#FFC631"></path>
+                        <path d="M0 36.5H23.9999C23.9999 49.9171 13.2333 60.8333 0 60.8333V73C19.8516 73 36 56.6273 36 36.5V0H0V36.5Z" fill="#FFC631"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="w-full sm:w-fit block md:hidden"><LinkButton text="nuestros servicios" link="/services"/></div>
+        </div>
+    </div>
+</Container>

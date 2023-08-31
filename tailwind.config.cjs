@@ -9,7 +9,10 @@ module.exports = {
 				kanit: 'Kanit'
 			},
 			colors: {
-				reciclacel_green: '#0DB14B'
+				reciclacel_green: '#0DB14B',
+				reciclacel_dark_blue: '#001F3F',
+				reciclacel_light_blue: '#4BB3FD',
+				reciclacel_yellow: '#FFC630'
 			}
 		},
 		screens: {

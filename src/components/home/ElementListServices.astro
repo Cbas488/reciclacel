@@ -1,0 +1,11 @@
+---
+export interface Props {
+    text: string
+}
+
+const { text } = Astro.props
+---
+<li class="flex flex-row gap-[18px] col-span-1 items-center">
+    <div class="w-8 h-0.5 3xl:h-1 bg-reciclacel_light_blue"></div>
+    <span class="font-roboto sm:text-xl 2xl:text-2xl uppercase relative text-white">{text}</span>
+</li>

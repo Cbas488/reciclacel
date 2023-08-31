@@ -10,6 +10,6 @@ const { text1 = "", textColor1 = "text-black", text2 = "", textColor2 = "text-bl
 ---
 
 <h2 class="text-3xl 3xl:text-4xl 4xl:text-5xl font-kanit font-bold uppercase hyphens-auto" lang="es">
-    <span class:list={[textColor1]}>{ text1 }</span>
+    <span set:html={ text1 } class:list={[textColor1]}/>
     <span class:list={[textColor2]}>{ text2 }</span>
 </h2>
