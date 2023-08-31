@@ -1,0 +1,10 @@
+---
+export interface Props {
+    text: string
+    textColor: string
+}
+
+const { text, textColor } = Astro.props
+---
+
+<p set:html={text} class:list={["font-roboto", "text-base", "md:text-lg", "3xl:text-2xl", "4xl:text-3xl", textColor]}></p>

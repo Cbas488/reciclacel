@@ -2,16 +2,17 @@
 import Container from "./Container.astro";
 import ServiceElement from "../../components/common/ServiceElement.astro";
 import "bootstrap-icons/font/bootstrap-icons.css"
+import TitleSection from "../../components/common/TitleSection.astro";
+import ParagraphSection from "../../components/common/ParagraphSection.astro";
 ---
 
-<Container>
+<Container subtitleText="sobre nosotros" subtitleTextLineColor="#4BB3FD">
     <div class="w-full flex flex-col gap-9">
-        <h2 class="text-3xl 3xl:text-4xl 4xl:text-5xl font-kanit font-bold uppercase">
-            <span>servicio</span>
-            <span class="text-reciclacel_green">sustentable</span>
-        </h2>
-        <p class="font-roboto 3xl:text-2xl 4xl:text-3xl text-[#000810]">Somos proveedores de cajas y cubetas de plástico. Contamos con un abastecimiento constante, nos <br>
-            enfocamos en realizar un servicio profesional y de alto cuidado hacia nuestros socios.</p>
+        <TitleSection text1="servicio" text2="sustentable" textColor2="text-reciclacel_green" />
+        <ParagraphSection
+            text="Somos proveedores de cajas y cubetas de plástico. Contamos con un abastecimiento constante, nos <br> enfocamos en realizar un servicio profesional y de alto cuidado hacia nuestros socios."
+            textColor="text-[#000810]"
+        />
         <div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             <ServiceElement number="1" title="reciclaje integral" text="Proceso integral de ingeniería y manufactura de plástico por medio de recolección de scrap en industrias." nombre="reciclaje_integral"/>
             <ServiceElement number="2" title="inyección de plástico" text="Desarrollo de fundición de polímeros inyectados a presión, posteriormente solidificados." nombre="inyeccion_plastico"/>
@@ -22,11 +23,21 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 <style>
     a:hover > i {
-        transform: translate(5px);
+        -webkit-transform: translate(5px);
+            -ms-transform: translate(5px);
+                transform: translate(5px);
+        -webkit-transition: -webkit-transform 0.3s ease-in-out;
+        transition: -webkit-transform 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out;
         transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     }
 
     a:not(:hover) > i {
+        -webkit-transition: -webkit-transform 0.3s ease-in-out;
+        transition: -webkit-transform 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out;
         transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
     }
 </style>

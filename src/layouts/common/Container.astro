@@ -1,6 +1,21 @@
-<section class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 py-44 flex flex-col">
-    <span class="inline-block uppercase font-bold 3xl:text-2xl 4xl:text-3xl font-archivo pl-5 mb-2 3xl:mb-5 4xl:mb-7 relative">sobre nosotros</span>
-    <slot/>
+---
+import SubtitleWithLine from "../../components/common/SubtitleWithLine.astro";
+
+export interface Props {
+    background?: string
+    subtitleText: string
+    subtitleTextColor?: string
+    subtitleTextLineColor: string
+}
+
+const { background = "bg-white", subtitleText, subtitleTextColor = "text-black", subtitleTextLineColor } = Astro.props
+---
+
+<section class:list={["w-full", background]}>
+    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 py-20 md:py-44 flex flex-col">
+        <SubtitleWithLine text={subtitleText} textColor={subtitleTextColor} color={subtitleTextLineColor} />
+        <slot/>
+    </div>
 </section>
 
 <style>

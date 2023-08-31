@@ -1,0 +1,33 @@
+---
+export interface Props{
+    text: string
+    textColor: string
+    color: string
+}
+
+const { text, textColor = "text-back", color } = Astro.props
+---
+
+<span class:list={["inline-block uppercase font-bold 3xl:text-2xl 4xl:text-3xl font-archivo pl-5 mb-2 3xl:mb-5 4xl:mb-7 relative", textColor]}>{ text }</span>
+
+<style define:vars={{ color }}>
+    span::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        height: 2px;
+        width: 1000%;
+        left: -1000%;
+        background: var(--color);
+    }
+
+    @media screen and (min-width: 1920px) {
+        span::before {
+            height: 4px;
+        }
+    }
+</style>

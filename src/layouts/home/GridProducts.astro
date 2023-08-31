@@ -1,0 +1,60 @@
+---
+import ParagraphSection from "../../components/common/ParagraphSection.astro";
+import GridProductsElement from "../../components/home/GridProductsElement.astro";
+import TitleSection from "../../components/common/TitleSection.astro";
+import Container from "../common/Container.astro";
+---
+
+<Container background="bg-reciclacel_green" subtitleText="productos" subtitleTextColor="text-white" subtitleTextLineColor="#FFFFFF">
+    <div class="w-full flex flex-col gap-9">
+        <TitleSection text1="calidad y " text2="profesionalismo" textColor1="text-white" textColor2="text-white" />
+        <ParagraphSection
+            text="Ideales para la industria alimentaria, diseñados para mantener la calidad durante el <br> almacenamiento y transporte de la mercancía."
+            textColor="text-white"
+        />
+        <div class="grid grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3 gap-10">
+            <GridProductsElement
+                imageWhite= "/img/products/canasta_20/image_index_grid_white.webp",
+                imageUse= "/img/products/canasta_20/image_index_grid_use.webp",
+                name= "canasta 20 kg",
+                phrase= "Cuidado en cada proceso",
+                product= "canasta_20",
+            />
+            <GridProductsElement
+                imageWhite= "/img/products/canasta_15/image_index_grid_white.webp",
+                imageUse= "/img/products/canasta_15/image_index_grid_use.webp",
+                name= "canasta 15 kg",
+                phrase= "Mayor durabilidad y resistencia",
+                product= "canasta_15",
+            />
+            <GridProductsElement
+                imageWhite= "/img/products/canasta_10/image_index_grid_white.webp",
+                imageUse= "/img/products/canasta_10/image_index_grid_use.webp",
+                name= "canasta 10 kg",
+                phrase= "Protección en la distribución",
+                product= "canasta_10",
+            />
+            <GridProductsElement
+                imageWhite= "/img/products/cubeta_4l/image_index_grid_white.webp",
+                imageUse= "/img/products/cubeta_4l/image_index_grid_use.webp",
+                name= "cubeta de 4 L",
+                phrase= "Seguridad en los alimentos",
+                product= "cubeta_4l",
+            />
+            <GridProductsElement
+                imageWhite= "/img/products/caja_walterino/image_index_grid_white.webp",
+                imageUse= "/img/products/caja_walterino/image_index_grid_use.webp",
+                name= "caja Walterino",
+                phrase= "Ideales para transportar",
+                product= "caja_walterino",
+            />
+            <GridProductsElement
+                imageWhite= "/img/products/caja_distribucion/image_index_grid_white.webp",
+                imageUse= "/img/products/caja_distribucion/image_index_grid_use.webp",
+                name= "caja de distribución",
+                phrase= "Empaqueta la calidad",
+                product= "caja_distribucion",
+            />
+        </div>
+    </div>
+</Container>

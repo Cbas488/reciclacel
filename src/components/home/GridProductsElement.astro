@@ -1,0 +1,37 @@
+---
+export interface Props {
+    imageWhite: string
+    imageUse: string
+    name: string
+    phrase: string
+    product: string
+}
+
+const { imageWhite, imageUse, name, phrase, product } = Astro.props
+---
+
+<div class="col-span-1 row-span-1 w-full h-full flex flex-col gap-3 2xl:gap-5">
+    <div class="image_product relative w-full h-full">
+        <img class="image_hover absolute object-contain" src={imageUse} alt={name}>
+        <img src={imageWhite} alt={name}>
+    </div>
+    <h2 class="text-3xl md:text-5xl 2xl:text-6xl first-letter:uppercase font-bold font-archivo text-white">canasta 20kg</h2>
+    <div class="flex flex-col lg:flex-row gap-3 2xl:gap-5 justify-between items-start lg:items-center font-roboto text-lg md:text-2xl 2xl:text-3xl text-white">
+        <span>{phrase}</span>
+        <a class="flex flex-row items-center [&>i]:hover:translate-x-2 lg:[&>i]:hover:translate-x-[unset] lg:[&>span]:hover:-translate-x-2" href=`/products/${product}`>
+            <span class="uppercase font-semibold transition-transform duration-500 ease-in-out">detalles</span>
+            <i class="bi bi-arrow-right-short text-4xl xl:text-5xl transition-transform duration-500 ease-in-out"></i>
+        </a>
+    </div>
+</div>
+
+<style>
+    .image_hover {
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+
+    .image_product:hover .image_hover {
+        opacity: 1;
+    }
+</style>
