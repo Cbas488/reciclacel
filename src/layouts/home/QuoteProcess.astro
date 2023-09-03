@@ -1,0 +1,61 @@
+---
+import LinkButton from "../../components/common/LinkButton.astro";
+import ProgressTrackerElement from "../../components/common/ProgressTrackerElement.astro";
+import SubtitleWithLine from "../../components/common/SubtitleWithLine.astro";
+import TitleSection from "../../components/common/TitleSection.astro";
+import Container from "../common/Container.astro";
+
+---
+
+<section class="w-full py-20 md:py-44 bg-reciclacel_dark_blue">
+    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 flex flex-col">
+        <SubtitleWithLine text="claridad en el servicio" textColor="text-white" color="#FFC630" />
+        <TitleSection text1="proceso de " text2="cotización" textColor1="text-white" textColor2="text-reciclacel_green" />
+    </div>
+
+    <div class="progress_tracker_line w-full my-20 relative">
+        <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 flex flex-col gap-10">
+            <div class="w-full grid grid-cols-1 lg:grid-cols-4 gap-x-5 gap-y-5">
+                <ProgressTrackerElement text="1. Establece cuál es el producto de tu interés." icon="/svg/tracker/tracker1.svg"/>
+                <ProgressTrackerElement text="2. Especifíca la cantidad de producto." icon="/svg/tracker/tracker2.svg"/>
+                <ProgressTrackerElement text="3. Compártenos tu localidad." icon="/svg/tracker/tracker3.svg"/>
+                <ProgressTrackerElement text="4. Recibirás tu cotización en menos de 24 horas." icon="/svg/tracker/tracker4.svg"/>
+            </div>
+        </div>
+    </div>
+    <div class="w-full sm:w-fit px-5">
+        <LinkButton link="/" text="cotiza ahora"/>
+    </div>
+</section>
+
+<style>
+    .progress_tracker_line::before{
+        content: "";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        top: 10px;
+        background: #FFFFFF;
+    }
+
+    @media screen and (max-width: 1023.97px) {
+        .progress_tracker_line::before {
+            visibility: hidden;
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        .progress_tracker_line::before {
+            height: 2px;
+            top: 15px;
+        }
+    }
+
+    @media screen and (min-width: 2560px) {
+        .progress_tracker_line::before {
+            height: 3px;
+            top: 20px;
+        }
+    }
+</style>
