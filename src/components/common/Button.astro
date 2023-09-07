@@ -1,0 +1,10 @@
+---
+export interface Props{
+    id: string
+    text: string
+}
+
+const { id, text } = Astro.props
+---
+
+<button class="w-full h-14 3xl:h-20 4xl:h-24 flex justify-center items-center font-archivo font-bold uppercase px-[1.875rem] 3xl:px-10 4xl:px-12 duration-300 transition-[transform] ease-in-out text-sm 3xl:text-xl 4xl:text-2xl hover:-translate-y-[5px] bg-reciclacel_yellow" id={id}>{text}</button>

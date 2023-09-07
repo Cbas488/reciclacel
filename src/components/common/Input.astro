@@ -1,0 +1,9 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'input'> {}
+
+const { type, placeholder, name, ...rest } = Astro.props
+---
+
+<input class="w-full 2xl:text-xl 3xl:text-3xl px-5 py-4 placeholder:capitalize outline-none transition-all duration-500 font-roboto border border-[#A9A9A9] focus:border-[#202C38] focus:placeholder:opacity-0" type={type} name={name} id={name} placeholder={placeholder} {...rest}>

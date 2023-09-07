@@ -1,0 +1,51 @@
+---
+import TitleSection from "../../components/common/TitleSection.astro";
+import Input from "../../components/common/Input.astro";
+import Textarea from "../../components/common/Textarea.astro";
+import Button from "../../components/common/Button.astro";
+import Container from "./Container.astro";
+import LInksContactForm from "../../components/common/LInksContactForm.astro";
+---
+
+<Container subtitleText="contacto" subtitleTextLineColor="#FFC630">
+    <div class="w-full flex flex-col gap-9">
+        <TitleSection text1="¿tienes alguna " text2="pregunta?" textColor2="text-reciclacel_green" />
+        <div class="w-full flex flex-col lg:flex-row gap-14">
+            <form class="w-full lg:w-3/4 flex flex-col gap-8">
+                <div class="w-full flex flex-col lg:flex-row gap-8">
+                    <Input name={"name"} type={"text"} placeholder={'nombre'} />
+                    <Input name={"phone"} type={"tel"} placeholder={'teléfono'} />
+                </div>
+                <Input name={"email"} type={"email"} placeholder={'correo electrónico'} />
+                <Textarea rows={"5"} name={"mensaje"} placeholder={"mensaje"} />
+                <div class="w-full flex flex-col sm:flex-row justify-between gap-8">
+                    <div class="g-recaptcha" data-sitekey="6Le_eIcjAAAAAJ4_4gq6r_op9HY-fRLnGzY1VYtm"></div>
+                    <div class="w-full sm:w-fit">
+                        <Button id={"send_contact_form"} text={"enviar"} />
+                    </div>
+                </div>
+            </form>
+
+            <div class="w-full lg:w-1/4 flex flex-col gap-5 md:gap-8 3xl:gap-12 4xl:gap-16">
+                <h3 class="text-3xl sm:text-[2rem] 2xl:text-4xl 3xl:text-5xl font-archivo font-bold first-letter:uppercase leading-tight tracking-tighter">recolectamos tu scrap</h3>
+                <LInksContactForm
+                    title="email"
+                    links={[
+                        {link: "mailto:administracion@recicel.com", text: "administracion@recicel.com"},
+                        {link: "mailto:direccion@recicel.com", text: "direccion@recicel.com"}
+                    ]}
+                />
+                <LInksContactForm
+                    title="teléfono"
+                    links={[
+                        {link: "tel:+523328049281", text: "33 2804 9281"},
+                        {link: "tel:+524616177952", text: "461 617 7952"}
+                    ]}
+                />
+                <a class="rounded-full h-14 w-14 2xl:h-16 2xl:w-16 3xl:w-20 3xl:h-20 flex justify-center items-center cursor-pointer transition-all bg-reciclacel_dark_blue hover:bg-reciclacel_light_blue hover:scale-110" href="https://wa.me/3328049281">
+                    <i class="text-2xl 2xl:text-3xl 3xl:text-4xl bi bi-whatsapp text-white"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</Container>

@@ -1,0 +1,17 @@
+---
+import { type link } from '../../utilities/types.ts'
+
+export interface Props {
+    title: string
+    links: Array<link>
+}
+
+const { title, links } = Astro.props
+---
+
+<div class="flex flex-col">
+    <span class="text-sm 2xl:text-base 3xl:text-xl 4xl:text-2xl uppercase mb-2 text-[#A9A9A9]">{title}</span>
+    {
+        links.map(link => <a class="text-lg 2xl:text-xl 3xl:text-2xl font-roboto font-semibold transition-colors duration-500 leading-tight hover:text-reciclacel_green" href={link.link}>{link.text}</a>)
+    }
+</div>
