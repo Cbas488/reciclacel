@@ -38,31 +38,31 @@ import ParagraphSection from "../../components/common/ParagraphSection.astro";
                         ]}
                     />
 
-                    <ContactNetworkElementFooter icon="bi-linkedin" text="reciclacel" link="https://www.linkedin.com/company/reciclacel" />
-                    <ContactNetworkElementFooter icon="bi-facebook" text="facebook" link="https://www.facebook.com/people/Reciclacel/100090233341365/" />
+                    <ContactNetworkElementFooter icon="bi-linkedin" link={{text: "reciclacel", link: "https://www.linkedin.com/company/reciclacel"}} />
+                    <ContactNetworkElementFooter icon="bi-facebook" link={{text: "facebook", link: "https://www.facebook.com/people/Reciclacel/100090233341365/"}} />
                 </ul>
             </div>
 
             <div class="col-span-1 flex flex-col gap-5">
                 <HeadFooterSection text="compañía" />
                 <ul class="flex flex-col gap-5">
-                    <CompaniaElementFooter text="empresa" link="/about" />
-                    <CompaniaElementFooter text="servicios" link="/services" />
-                    <CompaniaElementFooter text="productos" link="/#products" />
+                    <CompaniaElementFooter link={{text: "empresa", link: "/about"}} />
+                    <CompaniaElementFooter link={{text: "servicios", link: "/services"}} />
+                    <CompaniaElementFooter link={{text: "productos", link: "/#products"}} />
                 </ul>
             </div>
 
             <div class="col-span-1 flex flex-col gap-5">
                 <HeadFooterSection text="legal" />
                 <ul class="flex flex-col gap-5">
-                    <LegalElementFooter text="política de privacidad" link="/politic" />
-                    <LegalElementFooter text="términos y condiciones" link="/terms" />
+                    <LegalElementFooter link={{text: "política de privacidad", link: "/politic"}} />
+                    <LegalElementFooter link={{text: "términos y condiciones", link: "/terms"}} />
                 </ul>
             </div>
         </nav>
             
         <div class="w-full sm:w-fit mt-10 sm:mt-20">
-            <LinkButton text="login plataforma" link="http://admin.reciclacel.com.mx/" />
+            <LinkButton link={{text: "login plataforma", link: "http://admin.reciclacel.com.mx/"}} />
         </div>
 
         <hr class="border-white my-16">

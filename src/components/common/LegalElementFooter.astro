@@ -1,12 +1,12 @@
 ---
+import type { Link } from '../../utilities/types';
 export interface Props {
-    text: string
-    link: string
+    link: Link
 }
 
-const { text, link } = Astro.props
+const { link } = Astro.props
 ---
 
 <li class="flex gap-2 items-center">
-    <a class="leading-6 text-sm md:text-base 3xl:text-xl 4xl:text-2xl uppercase font-semibold font-archivo text-white" href={link}>{text}</a>
+    <a class="leading-6 text-sm md:text-base 3xl:text-xl 4xl:text-2xl uppercase font-semibold font-archivo text-white" href={link.link}>{link.text}</a>
 </li>

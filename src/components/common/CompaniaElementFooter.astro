@@ -1,13 +1,13 @@
 ---
+import type { Link } from '../../utilities/types'
 export interface Props {
-    text: string
-    link: string
+    link: Link
 }
 
-const { text, link } = Astro.props
+const { link } = Astro.props
 ---
 
 <li class="footer_link flex gap-2 items-center [&:hover>i]:text-reciclacel_green">
     <i class="text-xs 2xl:text-xl 3xl:text-2xl bi bi-chevron-right transition-colors duration-300 text-reciclacel_yellow"></i>
-    <a class="leading-6 text-sm md:text-base 3xl:text-xl 4xl:text-2xl uppercase font-semibold font-archivo text-white" href={link}>{text}</a>
+    <a class="leading-6 text-sm md:text-base 3xl:text-xl 4xl:text-2xl uppercase font-semibold font-archivo text-white" href={link.link}>{link.text}</a>
 </li>

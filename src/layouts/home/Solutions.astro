@@ -10,7 +10,7 @@ import Container from "../common/Container.astro";
     <div class="w-full flex flex-col gap-9">
         <div class="flex flex-row w-full justify-between items-center gap-10">
             <TitleSection text1="equipo y personal<br>" text2="especializado" textColor1="text-white" textColor2="text-reciclacel_green" />
-            <div class="w-fit hidden md:block"><LinkButton text="nuestros servicios" link="/services"/></div>
+            <div class="w-fit hidden md:block"><LinkButton link={{text: "nuestros servicios", link: "/services"}}/></div>
         </div>
         <div class="relative max-w-full h-0 overflow-hidden pb-[56.25%]">
             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/-1h7rJUXXu0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -43,6 +43,6 @@ import Container from "../common/Container.astro";
                 </div>
             </div>
         </div>
-        <div class="w-full sm:w-fit"><LinkButton text="ir a productos" link="#"/></div>
+        <div class="w-full sm:w-fit"><LinkButton link={{text: "ir a productos", link: ""}}/></div>
     </div>
 </Container>
