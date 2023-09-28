@@ -15,7 +15,7 @@ const { imageWhite, imageUse, name, phrase, product } = Astro.props
         <img class="image_hover absolute object-contain" src={imageUse} alt={name}>
         <img src={imageWhite} alt={name}>
     </div>
-    <h2 class="text-3xl md:text-5xl 2xl:text-6xl first-letter:uppercase font-bold font-archivo text-white">canasta 20kg</h2>
+    <h2 class="text-4xl md:text-4xl 2xl:text-5xl first-letter:uppercase font-bold font-archivo text-white">{name}</h2>
     <div class="flex flex-col lg:flex-row gap-3 2xl:gap-5 justify-between items-start lg:items-center font-roboto text-lg md:text-2xl 2xl:text-3xl text-white">
         <span>{phrase}</span>
         <a class="flex flex-row items-center [&>i]:hover:translate-x-2 lg:[&>i]:hover:translate-x-[unset] lg:[&>span]:hover:-translate-x-2" href=`/products/${product}`>
