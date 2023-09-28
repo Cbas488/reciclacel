@@ -1,10 +1,9 @@
 ---
-import Button from "../../components/common/Button.astro";
-import Input from "../../components/common/Input.astro";
-import ParagraphSection from "../../components/common/ParagraphSection.astro";
-import Textarea from "../../components/common/Textarea.astro";
-import TitleSection from "../../components/common/TitleSection.astro";
-import Container from "./Container.astro";
+import Button from "../../components/common/Button.astro"
+import Input from "../../components/common/Input.astro"
+import ParagraphSection from "../../components/common/ParagraphSection.astro"
+import TitleSection from "../../components/common/TitleSection.astro"
+import Container from "./Container.astro"
 
 ---
 
@@ -23,7 +22,7 @@ import Container from "./Container.astro";
                 <Input name={"phone_contact_scrap"} type={"tel"} placeholder={'teléfono'} />
             </div>
             <Input name={"email_contact_scrap"} type={"email"} placeholder={'correo electrónico'} />
-            <select class="w-full 2xl:text-xl 3xl:text-3xl px-5 py-4 font-roboto outline-none border border-[#A9A9A9] focus:border-[#202C38]" name="" id="">
+            <select class="w-full 2xl:text-xl 3xl:text-3xl px-5 py-4 font-roboto outline-none border border-[#A9A9A9] focus:border-[#202C38]" name="type_scrap" id="type_scrap  ">
                 <option disabled selected hidden value="0">Seleccione el tipo de scrap</option>
                 <option class="capitalize font-roboto" value="Plástico">plástico</option>
                 <option class="capitalize font-roboto" value="Chatarra">chatarra</option>
