@@ -1,0 +1,85 @@
+---
+import CompaniaElementFooter from "../../components/common/CompaniaElementFooter.astro";
+import ContactElementFooter from "../../components/common/ContactElementFooter.astro";
+import ContactNetworkElementFooter from "../../components/common/ContactNetworkElementFooter.astro";
+import HeadFooterSection from "../../components/common/HeadFooterSection.astro";
+import LegalElementFooter from "../../components/common/LegalElementFooter.astro";
+import LinkButton from "../../components/common/LinkButton.astro";
+import ParagraphSection from "../../components/common/ParagraphSection.astro";
+---
+
+<footer class="w-full bg-reciclacel_dark_blue">
+    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto px-5 pb-10 flex flex-col">
+        <nav class="w-full grid lg:flex lg:flex-wrap lg:justify-between grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[unset] gap-x-10 gap-y-10">
+            <div class="max-w-sm 2xl:max-w-md col-span-1">
+                <img class="xl:h-16 2xl:h-20 3xl:h-24 4xl:h-28" src="/svg/logo.svg" alt="reciclacel logo">
+                <ParagraphSection
+                    text="Somos una empresa mexicana, especializada en la recolección, producción, comercialización y distribución de materiales reciclables desde 2007."
+                    textColor="text-white"
+                />
+            </div>
+            
+            <div class="col-span-1 flex flex-col gap-5">
+                <span class="text-2xl 3xl:text-3xl 4xl:text-4xl font-roboto font-bold capitalize text-white">contacto</span>
+                <ul class="flex flex-col gap-5">
+                    <ContactElementFooter
+                        icon="bi-envelope"
+                        links={[
+                            { text: "administracion@recicel.com", link: "mailto:administracion@recicel.com" },
+                            { text: "direccion@recicel.com", link: "mailto:direccion@recicel.com" }
+                        ]}
+                    />
+
+                    <ContactElementFooter
+                        icon="bi-telephone-fill"
+                        links={[
+                            { text: "33 2804 9281", link: "tel:3328049281" },
+                            { text: "461 617 7952", link: "tel:4616177952" }
+                        ]}
+                    />
+
+                    <ContactNetworkElementFooter icon="bi-linkedin" text="reciclacel" link="https://www.linkedin.com/company/reciclacel" />
+                    <ContactNetworkElementFooter icon="bi-facebook" text="facebook" link="https://www.facebook.com/people/Reciclacel/100090233341365/" />
+                </ul>
+            </div>
+
+            <div class="col-span-1 flex flex-col gap-5">
+                <HeadFooterSection text="compañía" />
+                <ul class="flex flex-col gap-5">
+                    <CompaniaElementFooter text="empresa" link="/about" />
+                    <CompaniaElementFooter text="servicios" link="/services" />
+                    <CompaniaElementFooter text="productos" link="/#products" />
+                </ul>
+            </div>
+
+            <div class="col-span-1 flex flex-col gap-5">
+                <HeadFooterSection text="legal" />
+                <ul class="flex flex-col gap-5">
+                    <LegalElementFooter text="política de privacidad" link="/politic" />
+                    <LegalElementFooter text="términos y condiciones" link="/terms" />
+                </ul>
+            </div>
+        </nav>
+            
+        <div class="w-full sm:w-fit mt-10 sm:mt-20">
+            <LinkButton text="login plataforma" link="http://admin.reciclacel.com.mx/" />
+        </div>
+
+        <hr class="border-white my-16">
+
+        <div class="flex flex-col text-base md:text-lg 3xl:text-2xl 4xl:text-3xl font-roboto text-white">
+            <span>© 2023 Reciclacel</span>
+            <span>Todos los derechos reservados</span>
+            <span>Developed by <a href="https://loco4ever.com" class="text-reciclacel_green">L4E</a></span>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .footer_link:hover > i{
+        color: #0DB14B;
+        -webkit-transition: color 500ms;
+        -o-transition: color 500ms;
+        transition: color 500ms;
+    }
+</style>
