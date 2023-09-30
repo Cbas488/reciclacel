@@ -1,0 +1,38 @@
+<nav id="barmenu" class="fixed top-0 w-full overflow-hidden z-50 transition-all duration-300 bg-reciclacel_dark_blue">
+    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto py-4 px-5 flex justify-between">
+        <img class="h-12" src="/svg/logo.svg" alt="logo">
+    </div>
+</nav>
+
+<script>
+    const barmenu = document.querySelector("#barmenu") as HTMLElement
+    let lastYPos: number = window.scrollY
+
+    const changeColorBarMenu: Function = () => {
+        if(scrollY <= 0){
+            barmenu.classList.remove('bg-reciclacel_dark_blue')
+            barmenu.classList.add('bg-transparent')
+        } else {
+            barmenu.classList.add('bg-reciclacel_dark_blue')
+            barmenu.classList.remove('bg-transparent')
+        }
+    }
+
+    changeColorBarMenu()
+
+    window.onscroll = () => {
+        const currentYPos: number = window.scrollY
+
+        changeColorBarMenu()
+
+        if(!(scrollY > 0 && scrollY < 200)){
+            if(currentYPos > lastYPos){
+                barmenu.style.top = '-100px'
+            } else {
+                barmenu.style.top = '0'
+            }
+        }
+        lastYPos = currentYPos
+    }
+</script>
+
