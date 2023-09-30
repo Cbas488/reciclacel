@@ -12,14 +12,16 @@ const { id, category, image, date, title, intro } = Astro.props
 ---
 
 <div class="h-fit w-full flex flex-col">
-    <div class="h-[200px] w-full relative">
+    <div class="h-[200px] 2xl:h-72 3xl:h-80 4xl:h-[96] w-full relative">
         <img class="h-full w-full object-cover" src={image} alt={`image ${title}`}>
-        <span class="absolute top-3 right-3 font-roboto font-bold uppercase tracking-wider text-xs p-1.5 bg-reciclacel_yellow">{category}</span>
+        <div class="absolute top-3 right-3 font-roboto font-bold uppercase tracking-wider text-xs 2xl:text-lg 3xl:text-xl 4xl:text-2xl p-1.5 ml-2 bg-reciclacel_yellow">
+            <span class="line-clamp-1 break-all">{category}</span>
+        </div>
     </div>
-    <div class="h-fit px-3 py-2 flex flex-col justify-between gap-3 border-[1.5px] border-[#c8c8c8]">
-        <span class="font-roboto italic text-xs text-reciclacel_green">{date}</span>
-        <h3 class="font-roboto font-semibold text-2xl line-clamp-2 leading-tight">{title}</h3>
-        <p class="mt-2 mb-5 font-roboto leading-5 line-clamp-4 text-xs text-[#979797]">{intro}</p>
-        <a class="font-roboto italic uppercase text-sm text-reciclacel_light_blue" href={id}>seguir leyendo &gt;</a>
+    <div class="h-fit px-3 3xl:px-5 py-2 3xl:py-4 flex flex-col justify-between gap-3 border-[1.5px] border-[#c8c8c8]">
+        <span class="font-roboto italic text-xs 2xl:text-lg 3xl:text-xl 4xl:text-2xl text-reciclacel_green">{date}</span>
+        <h3 class="font-roboto font-semibold text-2xl 2xl:text-3xl 3xl:text-4xl line-clamp-2 leading-tight">{title}</h3>
+        <p class="mt-2 mb-5 font-roboto leading-5 line-clamp-4 text-xs 2xl:text-lg 3xl:text-xl 4xl:text-2xl text-[#979797]">{intro}</p>
+        <a class="font-roboto italic uppercase text-sm 2xl:text-xl 3xl:text-2xl 4xl:text-3xl text-reciclacel_light_blue" href={id}>seguir leyendo &gt;</a>
     </div>
 </div>

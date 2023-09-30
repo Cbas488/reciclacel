@@ -3,6 +3,10 @@ import BlogCard from "../../components/common/BlogCard.astro";
 import ParagraphSection from "../../components/common/ParagraphSection.astro";
 import TitleSection from "../../components/common/TitleSection.astro";
 import Container from "./Container.astro";
+import { getLastThreePosts } from '../../services/blog'
+import type { Blog } from "../../utilities/types";
+
+const posts: Array<Blog> = getLastThreePosts()
 ---
 
 <Container subtitleText="noticias" subtitleTextLineColor="#FFC630">
@@ -12,15 +16,18 @@ import Container from "./Container.astro";
             text="Consulta las últimas noticias y tendencias de la industria de reciclaje posindustrial."
             textColor="text-[#000810]"
         />
-        <div class="grid grid-cols-3 w-full gap-x-5 gap-y-4">
-            <BlogCard
-                id="1"
-                category="innovación"
-                image="https://a.storyblok.com/f/228332/1500x1000/b3ccd8a422/1.webp"
-                date="17 agosto 2023"
-                title="Cómo las Canastas de Plástico están transformando la distribución de productos agrícolas"
-                intro="En la dinámica y cambiante industria agrícola, la eficiencia en la distribución de productos frescos es esencial. Una innovación que ha estado desempeñando un papel crucial en esta transformación es el uso creciente de canastas de plástico. Estas simples pero ingeniosas soluciones están revolucionando la forma en que las frutas y verduras llegan a nuestros supermercados y hogares. En este blog, explicaremos cómo las canastas de plástico están cambiando el juego en la distribución de productos agrícolas."
-            />
+        <div class="grid grid-cols-1 sm:grid-cols-3 w-full gap-x-5 gap-y-4">
+            {
+                posts.map(post => <BlogCard
+                    id={post.id}
+                    category={post.category}
+                    image={post.image}
+                    date={post.date}
+                    title={`${post.titleBodyBlue}${post.titleBodyGreen}`}
+                    intro={post.intro}
+                />)
+            }
         </div>
+        <slot/>
     </div>
 </Container>

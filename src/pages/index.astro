@@ -1,4 +1,5 @@
 ---
+import LinkButton from "../components/common/LinkButton.astro";
 import BlogCatalog from "../layouts/common/BlogCatalog.astro";
 import ContactForm from "../layouts/common/ContactForm.astro";
 import Footer from "../layouts/common/Footer.astro";
@@ -16,7 +17,16 @@ import MainLayout from "./../layouts/common/MainLayout.astro"
 	<GridProducts/>
 	<Solutions/>
 	<QuoteProcess/>
-	<BlogCatalog />
+	<BlogCatalog >
+		<div class="w-full flex justify-center items-center">
+			<div class="w-full sm:w-fit">
+				<LinkButton link={{
+					text: 'ver más entradas',
+					link: '/blog'
+				}}  />
+			</div>
+		</div>
+	</BlogCatalog>
 	<ContactForm/>
 	<Partners/>
 	<ScrapForm/>
