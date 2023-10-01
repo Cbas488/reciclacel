@@ -1,5 +1,11 @@
 ---
 import Menu from '../common/Menu.astro'
+
+export interface Props {
+	currentPage: string
+}
+
+const { currentPage } = Astro.props
 ---
 
 <html lang="en">
@@ -17,7 +23,7 @@ import Menu from '../common/Menu.astro'
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
-		<Menu />
+		<Menu currentPage={currentPage} />
 		<slot/>
 	</body>
 </html>

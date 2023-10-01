@@ -1,0 +1,53 @@
+---
+import type { Link, Product, Service } from '../../utilities/types'
+
+export interface Props {
+    link: Link
+    name: string
+    elements: Array<Product> | Array<Service>
+    currentPage: string
+    children: string
+}
+
+const { link, name, elements, currentPage, children } = Astro.props
+---
+
+<li class="dropdown relative h-full">
+    <a class={`space-x-2 gap-5 font-roboto font-semibold uppercase ${name === currentPage ? 'underline' : ''} transition-colors underline-offset-8 text-sm 2xl:text-xl 4xl:text-2xl text-white hover:text-reciclacel_light_blue decoration-reciclacel_light_blue`} href={link.link}>
+        <span>{link.text}</span>
+        <i class="bi bi-chevron-up"></i>
+    </a>
+    <ul class="hidden opacity-0 flex-col gap-5 p-5 2xl:p-6 3xl:p-8 4xl:p-10 z-20 absolute bg-reciclacel_dark_blue">
+        {
+            elements.map(element => 
+                <li><a class="w-full whitespace-nowrap font-roboto font-semibold uppercase transition-colors text-sm 2xl:text-xl 4xl:text-2xl text-white hover:text-reciclacel_light_blue" href={`/${children}/${element.id}`}>{element.name}</a></li>
+            )
+        }
+    </ul>
+</li>
+
+<style>
+    a {
+        text-decoration-thickness: 2px;
+        word-wrap: normal;
+    }
+
+    .dropdown {
+        transition: opacity 500ms;
+    }
+
+    .dropdown:hover ul {
+        display: flex;
+        opacity: 1;
+    }
+
+    .dropdown a i::before {
+        transition: transform 300ms;
+    }
+
+    .dropdown:hover a i::before {
+        transform: rotate(-0.5turn);
+    }
+</style>
+
+

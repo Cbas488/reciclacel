@@ -1,0 +1,18 @@
+---
+import type { Link } from '../../utilities/types'
+export interface Props {
+    link: Link
+    name: string
+    currentPage: string
+}
+
+const { link, name, currentPage } = Astro.props
+---
+
+<li class="h-fit"><a class={`font-roboto font-semibold uppercase ${name === currentPage ? 'underline' : ''} transition-colors underline-offset-8 text-sm 2xl:text-xl 4xl:text-2xl text-white hover:text-reciclacel_light_blue decoration-reciclacel_light_blue`} href={link.link}>{link.text}</a></li>
+
+<style>
+    a {
+        text-decoration-thickness: 2px;
+    }
+</style>

@@ -17,6 +17,16 @@ type Blog = {
 
 }
 
+type Product = {
+    id: string
+    name: string
+}
+
+type Service = {
+    id: string
+    name: string
+}
+
 export type {
-    Link, Blog
+    Link, Blog, Product, Service
 }

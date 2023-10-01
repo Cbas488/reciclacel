@@ -1,9 +1,15 @@
 ---
 import BarMenu from "./BarMenu.astro";
 import FullMenu from "./FullMenu.astro";
+
+export interface Props {
+    currentPage: string
+}
+
+const { currentPage } = Astro.props
 ---
 
 <header>
-    <BarMenu />
+    <BarMenu currentPage={currentPage} />
     <FullMenu />
 </header>

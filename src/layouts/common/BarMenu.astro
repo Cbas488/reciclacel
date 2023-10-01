@@ -1,8 +1,44 @@
-<nav id="barmenu" class="fixed top-0 w-full overflow-hidden z-50 transition-all duration-300 bg-reciclacel_dark_blue">
-    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto py-4 px-5 flex justify-between">
-        <img class="h-12" src="/svg/logo.svg" alt="logo">
+---
+import BarMenuElement from "../../components/common/BarMenuElement.astro"
+import BarMenuElementDropdown from "../../components/common/BarMenuElementDropdown.astro"
+import { getAllProducts } from '../../services/products'
+import type { Product, Service } from "../../utilities/types"
+
+export interface Props {
+    currentPage: string
+}
+
+const { currentPage } = Astro.props
+const products: Array<Product> = getAllProducts()
+const services: Array<Service> = [
+    { id: "reciclaje_integral", name: "reciclaje integral" },
+    { id: "inyeccion_plastico", name: "inyección de plástico" },
+    { id: "logistica", name: "logística" },
+    { id: "personalizacion", name: "personalización" }
+]
+---
+
+<div id="barmenu" class="fixed top-0 w-full overflow-visible z-10 transition-all duration-300 bg-reciclacel_dark_blue">
+    <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto py-4 2xl:py-6 3xl:py-8 px-5 flex justify-between items-center">
+        <img class="h-12 2xl:h-16 3xl:h-20" src="/svg/logo.svg" alt="logo">
+        <nav class="w-fit hidden lg:flex items-center">
+            <ul class="flex gap-10">
+                <BarMenuElement link={{link: "/", text: "inicio"}} name="inicio" currentPage={currentPage} />
+                <BarMenuElementDropdown link={{link: "javascript:void(0);", text: "productos"}} name="productos" elements={products} currentPage={currentPage} children="producto" />
+                <BarMenuElementDropdown link={{link: "/servicios", text: "servicios"}} name="servicios" elements={services} currentPage={currentPage} children="servicios" />
+                <BarMenuElement link={{link: "/empresa", text: "empresa"}} name="empresa" currentPage={currentPage} />
+                <BarMenuElement link={{link: "/cotiza", text: "cotiza"}} name="cotiza" currentPage={currentPage} />
+                <BarMenuElement link={{link: "/blog", text: "blog"}} name="blog" currentPage={currentPage} />
+            </ul>
+        </nav>
+        <button class="h-7 w-8 flex lg:hidden flex-col items-end justify-between">
+            <span class="h-[3px] w-1/2 bg-white"></span>
+            <span class="h-[3px] w-full bg-white"></span>
+            <span class="h-[3px] w-1/2 bg-white"></span>
+            <span class="h-[3px] w-full bg-white"></span>
+        </button>
     </div>
-</nav>
+</div>
 
 <script>
     const barmenu = document.querySelector("#barmenu") as HTMLElement
