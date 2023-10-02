@@ -1,0 +1,52 @@
+---
+import BarMenuElement from "../../components/common/BarMenuElement.astro";
+import BarMenuElementDropdown from "../../components/common/BarMenuElementDropdown.astro";
+import { getAllProducts } from "../../services/products";
+import type { Product, Service } from "../../utilities/types";
+import BarMenu from "./BarMenu.astro";
+
+export interface Props {
+    currentPage: string
+}
+
+const { currentPage } = Astro.props
+const products: Array<Product> = getAllProducts()
+const services: Array<Service> = [
+    { id: "reciclaje_integral", name: "reciclaje integral" },
+    { id: "inyeccion_plastico", name: "inyección de plástico" },
+    { id: "logistica", name: "logística" },
+    { id: "personalizacion", name: "personalización" }
+]
+---
+
+<div id="fullmenu" class="pb-20 invisible opacity-0 transition-all h-screen overflow-scroll duration-300 fixed w-full z-10 bg-reciclacel_dark_blue">
+    <ul class="mt-[4.5rem] px-5 pt-10 flex flex-col gap-10">
+        <BarMenuElement link={{link: "/", text: "inicio"}} name="inicio" currentPage={currentPage} />
+        <BarMenuElementDropdown link={{link: "javascript:void(0);", text: "productos"}} name="productos" elements={products} currentPage={currentPage} children="producto" />
+        {
+            services.map(service => <BarMenuElement link={{link: `/servicio/${service.id}`, text: service.name}} name={service.name} currentPage={currentPage} />)
+        }
+        <BarMenuElement link={{link: "/empresa", text: "empresa"}} name="empresa" currentPage={currentPage} />
+        <BarMenuElement link={{link: "/cotiza", text: "cotiza"}} name="cotiza" currentPage={currentPage} />
+        <BarMenuElement link={{link: "/blog", text: "blog"}} name="blog" currentPage={currentPage} />
+    </ul>
+</div>
+
+<script>
+    const dropdowns = [...document.querySelectorAll("#fullmenu .dropdown")] as Array<HTMLDivElement>
+
+    dropdowns.forEach(dropdown => {
+        dropdown.onclick = () => {
+            const liElement = dropdown.querySelector('ul') as HTMLElement
+            if(window.innerWidth < 1023.98){
+                if(liElement.style.display !== 'flex'){
+                    liElement.style.display = 'flex'
+                    liElement.style.opacity = '1'
+                } else {
+                    liElement.style.display = 'none'
+                    liElement.style.opacity = '0'
+                }
+            }
+        }
+    })
+</script>

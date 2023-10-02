@@ -7,9 +7,10 @@ export interface Props {
     elements: Array<Product> | Array<Service>
     currentPage: string
     children: string
+    isMobileDescomposition?: boolean
 }
 
-const { link, name, elements, currentPage, children } = Astro.props
+const { link, name, elements, currentPage, children, isMobileDescomposition = false } = Astro.props
 ---
 
 <li class="dropdown relative h-full">
@@ -17,7 +18,7 @@ const { link, name, elements, currentPage, children } = Astro.props
         <span>{link.text}</span>
         <i class="bi bi-chevron-up"></i>
     </a>
-    <ul class="hidden opacity-0 flex-col gap-5 p-5 2xl:p-6 3xl:p-8 4xl:p-10 z-20 absolute bg-reciclacel_dark_blue">
+    <ul class="flex-col gap-5 p-5 2xl:p-6 3xl:p-8 4xl:p-10 z-20 lg:absolute bg-reciclacel_dark_blue">
         {
             elements.map(element => 
                 <li><a class="w-full whitespace-nowrap font-roboto font-semibold uppercase transition-colors text-sm 2xl:text-xl 4xl:text-2xl text-white hover:text-reciclacel_light_blue" href={`/${children}/${element.id}`}>{element.name}</a></li>
@@ -32,8 +33,9 @@ const { link, name, elements, currentPage, children } = Astro.props
         word-wrap: normal;
     }
 
-    .dropdown {
-        transition: opacity 500ms;
+    .dropdown ul {
+        display: none;
+        opacity: 0;
     }
 
     .dropdown:hover ul {
@@ -49,5 +51,3 @@ const { link, name, elements, currentPage, children } = Astro.props
         transform: rotate(-0.5turn);
     }
 </style>
-
-
