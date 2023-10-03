@@ -15,6 +15,7 @@
     "@astrojs/tailwind": "^5.0.0",
     "astro": "^3.0.8",
     "bootstrap-icons": "^1.10.5",
+    "swiper": "^10.3.1",
     "tailwindcss": "^3.3.3"
   }
 }

@@ -1,0 +1,102 @@
+---
+import HeroSlide from "../../components/home/HeroSlide.astro";
+
+---
+
+<section class="container_image_bg h-screen w-full bg-center bg-no-repeat bg-cover transition-[background-image] duration-500">
+    <div class="w-full h-full flex items-end lg:items-center bg-gradient-to-r from-reciclacel_dark_blue/30 to-reciclacel_dark_blue/30">
+        <div class="w-full h-fit flex flex-col-reverse lg:flex-row gap-0 lg:items-center lg:justify-between pb-20 lg:pb-0 px-5 xl:px-12">
+            <div class="slider_hero_home overflow-hidden">
+                <div class="swiper-wrapper">
+                    <HeroSlide kicker="canastas con entorno agrícola" title="soluciones que mantienen la inocuidad de los productos." />
+                    <HeroSlide kicker="logística" title="estrategias para garantizar el funcionamiento de cada proceso." />
+                    <HeroSlide kicker="reciclaje (empresa sustentable)" title="tecnología, industria y reciclaje para contribuir al ambiente." />
+                </div>
+            </div>
+            <div class="flex flex-row lg:flex-col gap-5">
+                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500">
+                    <span class="slider_control_active transition-opacity duration-500"></span>
+                </div>
+                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
+                    <span class="slider_control_active transition-opacity duration-500"></span>
+                </div>
+                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
+                    <span class="slider_control_active transition-opacity duration-500"></span>
+                </div>  
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .slider_control_active {
+        border-radius: 9999%;
+        color: transparent;
+        height: 24px;
+        width: 24px;
+        border: #FFC630 solid 1px;
+        position: absolute;
+        right: -50%;
+        top: -50%;
+        opacity: 0;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper'
+	import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+	import 'swiper/css'
+	import 'swiper/css/navigation'
+	import 'swiper/css/pagination'
+
+    const slideControls = Array.from(document.querySelectorAll(".slide_control")) as Array<HTMLDivElement>
+    const containerImageBg = document.querySelector(".container_image_bg") as HTMLElement
+    const sliderHero = new Swiper('.slider_hero_home', {
+        modules: [Navigation, Pagination, Autoplay, EffectFade],
+		slidesPerView: 1,
+        autoplay: {
+			delay: 2_000,
+			disableOnInteraction: true,
+		},
+        loop: true,
+		speed: 500
+    })
+
+    const setActiveSlideControl: Function = (newActiveSlide: number) => {
+        const activeClass = "bg-reciclacel_yellow"
+        const inactiveClass = "bg-white"
+        const opacityActive = '1'
+        const opacityInactive = '0'
+
+        const activeSlideControl = slideControls.find(control => control.classList.contains(activeClass)) as HTMLDivElement
+
+        if (activeSlideControl) {
+            activeSlideControl.classList.remove(activeClass)
+            activeSlideControl.classList.add(inactiveClass);
+            (activeSlideControl.querySelector('span') as HTMLSpanElement).style.opacity = opacityInactive
+        }
+
+        slideControls[newActiveSlide].classList.remove(inactiveClass)
+        slideControls[newActiveSlide].classList.add(activeClass);
+        (slideControls[newActiveSlide].querySelector('span') as HTMLSpanElement).style.opacity = opacityActive;
+    }
+
+    const changeImageBackground: Function = (numberImage: number) => {
+        containerImageBg.style.backgroundImage = `url('/img/home/hero_${numberImage + 1}.webp')`
+    }
+
+    slideControls.forEach((slideControl, indexControl) => {
+        slideControl.addEventListener("click", () => {
+            sliderHero.slideTo(indexControl)
+        });
+    });
+
+    sliderHero.on('slideChange', () => {
+        console.log(sliderHero.realIndex);
+        setActiveSlideControl(sliderHero.activeIndex)
+        changeImageBackground(sliderHero.activeIndex)
+    })
+
+    containerImageBg.style.backgroundImage = "url('/img/home/hero_1.webp')"
+    setActiveSlideControl(0)
+</script>
