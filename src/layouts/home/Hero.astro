@@ -1,6 +1,5 @@
 ---
 import HeroSlide from "../../components/home/HeroSlide.astro";
-
 ---
 
 <section class="container_image_bg h-screen w-full bg-center bg-no-repeat bg-cover transition-[background-image] duration-500">
@@ -13,14 +12,14 @@ import HeroSlide from "../../components/home/HeroSlide.astro";
                     <HeroSlide kicker="reciclaje (empresa sustentable)" title="tecnología, industria y reciclaje para contribuir al ambiente." />
                 </div>
             </div>
-            <div class="flex flex-row lg:flex-col gap-5">
-                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500">
+            <div class="flex flex-row lg:flex-col gap-5 2xl:gap-7 3xl:gap-10 4xl:gap-14">
+                <div class="slide_control h-3 2xl:h-6 3xl:h-8 4xl:h-10 w-3 2xl:w-6 3xl:w-8 4xl:w-10 cursor-pointer rounded-full relative transition-[background-color] duration-500">
                     <span class="slider_control_active transition-opacity duration-500"></span>
                 </div>
-                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
+                <div class="slide_control h-3 2xl:h-6 3xl:h-8 4xl:h-10 w-3 2xl:w-6 3xl:w-8 4xl:w-10 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
                     <span class="slider_control_active transition-opacity duration-500"></span>
                 </div>
-                <div class="slide_control h-3 w-3 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
+                <div class="slide_control h-3 2xl:h-6 3xl:h-8 4xl:h-10 w-3 2xl:w-6 3xl:w-8 4xl:w-10 cursor-pointer rounded-full relative transition-[background-color] duration-500 bg-white">
                     <span class="slider_control_active transition-opacity duration-500"></span>
                 </div>  
             </div>
@@ -40,14 +39,36 @@ import HeroSlide from "../../components/home/HeroSlide.astro";
         top: -50%;
         opacity: 0;
     }
+
+    @media (min-width: 2560px) {
+        .slider_control_active {
+            height: 80px;
+            width: 80px;
+            border-width: 3px;
+        }
+    }
+
+    @media (min-width: 1920px) and (max-width: 2559px) {
+        .slider_control_active {
+            height: 64px;
+            width: 64px;
+            border-width: 3px;
+        }
+    }
+
+    @media (min-width: 1536px) and (max-width: 1919px) {
+        .slider_control_active {
+            height: 48px;
+            width: 48px;
+            border-width: 2px;
+        }
+    }
 </style>
 
 <script>
     import Swiper from 'swiper'
 	import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
-	import 'swiper/css'
-	import 'swiper/css/navigation'
-	import 'swiper/css/pagination'
+	import 'swiper/swiper-bundle.css'
 
     const slideControls = Array.from(document.querySelectorAll(".slide_control")) as Array<HTMLDivElement>
     const containerImageBg = document.querySelector(".container_image_bg") as HTMLElement
@@ -58,8 +79,12 @@ import HeroSlide from "../../components/home/HeroSlide.astro";
 			delay: 2_000,
 			disableOnInteraction: true,
 		},
-        loop: true,
-		speed: 500
+        effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
+		},
+		speed: 500,
+        loop: true
     })
 
     const setActiveSlideControl: Function = (newActiveSlide: number) => {
