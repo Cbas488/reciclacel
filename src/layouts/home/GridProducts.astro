@@ -3,6 +3,21 @@ import ParagraphSection from "../../components/common/ParagraphSection.astro";
 import GridProductsElement from "../../components/home/GridProductsElement.astro";
 import TitleSection from "../../components/common/TitleSection.astro";
 import Container from "../common/Container.astro";
+
+const url = "../../assets/img/products/canasta_15/image_index_grid_use.webp"
+
+import imageWhiteCanasta20 from "../../assets/img/products/canasta_20/image_index_grid_white.webp"
+import imageUseCanasta20 from "../../assets/img/products/canasta_20/image_index_grid_use.webp"
+import imageWhiteCanasta15 from "../../assets/img/products/canasta_15/image_index_grid_white.webp"
+import imageUseCanasta15 from "../../assets/img/products/canasta_15/image_index_grid_use.webp"
+import imageWhiteCanasta10 from "../../assets/img/products/canasta_10/image_index_grid_white.webp"
+import imageUseCanasta10 from "../../assets/img/products/canasta_10/image_index_grid_use.webp"
+import imageWhiteCubeta4l from "../../assets/img/products/cubeta_4l/image_index_grid_white.webp"
+import imageUseCubeta4l from "../../assets/img/products/cubeta_4l/image_index_grid_use.webp"
+import imageWhiteCajaWalterino from "../../assets/img/products/caja_walterino/image_index_grid_white.webp"
+import imageUseCajaWalterino from "../../assets/img/products/caja_walterino/image_index_grid_use.webp"
+import imageWhiteCajaDistribucion from "../../assets/img/products/caja_distribucion/image_index_grid_white.webp"
+import imageUseCajaDistribucion from "../../assets/img/products/caja_distribucion/image_index_grid_use.webp"
 ---
 
 <Container background="bg-reciclacel_green" subtitleText="productos" subtitleTextColor="text-white" subtitleTextLineColor="#FFFFFF">
@@ -14,43 +29,43 @@ import Container from "../common/Container.astro";
         />
         <div class="grid grid-cols-1 sm:grid-cols-2 3xl:grid-cols-3 gap-10">
             <GridProductsElement
-                imageWhite= "/img/products/canasta_20/image_index_grid_white.webp",
-                imageUse= "/img/products/canasta_20/image_index_grid_use.webp",
+                imageWhite={imageWhiteCanasta20},
+                imageUse={imageUseCanasta20},
                 name= "canasta 20 kg",
                 phrase= "Cuidado en cada proceso",
                 product= "canasta_20",
             />
             <GridProductsElement
-                imageWhite= "/img/products/canasta_15/image_index_grid_white.webp",
-                imageUse= "/img/products/canasta_15/image_index_grid_use.webp",
+                imageWhite={imageWhiteCanasta15},
+                imageUse={imageUseCanasta15},
                 name= "canasta 15 kg",
                 phrase= "Mayor durabilidad y resistencia",
                 product= "canasta_15",
             />
             <GridProductsElement
-                imageWhite= "/img/products/canasta_10/image_index_grid_white.webp",
-                imageUse= "/img/products/canasta_10/image_index_grid_use.webp",
+                imageWhite={imageWhiteCanasta10},
+                imageUse={imageUseCanasta10},
                 name= "canasta 10 kg",
                 phrase= "Protección en la distribución",
                 product= "canasta_10",
             />
             <GridProductsElement
-                imageWhite= "/img/products/cubeta_4l/image_index_grid_white.webp",
-                imageUse= "/img/products/cubeta_4l/image_index_grid_use.webp",
+                imageWhite={imageWhiteCubeta4l},
+                imageUse={imageUseCubeta4l},
                 name= "cubeta de 4 L",
                 phrase= "Seguridad en los alimentos",
                 product= "cubeta_4l",
             />
             <GridProductsElement
-                imageWhite= "/img/products/caja_walterino/image_index_grid_white.webp",
-                imageUse= "/img/products/caja_walterino/image_index_grid_use.webp",
+                imageWhite={imageWhiteCajaWalterino},
+                imageUse={imageUseCajaWalterino},
                 name= "caja Walterino",
                 phrase= "Ideales para transportar",
                 product= "caja_walterino",
             />
             <GridProductsElement
-                imageWhite= "/img/products/caja_distribucion/image_index_grid_white.webp",
-                imageUse= "/img/products/caja_distribucion/image_index_grid_use.webp",
+                imageWhite={imageWhiteCajaDistribucion},
+                imageUse={imageUseCajaDistribucion},
                 name= "caja de distribución",
                 phrase= "Empaqueta la calidad",
                 product= "caja_distribucion",

@@ -3,6 +3,8 @@ import BarMenuElement from "../../components/common/BarMenuElement.astro"
 import BarMenuElementDropdown from "../../components/common/BarMenuElementDropdown.astro"
 import { getAllProducts } from '../../services/products'
 import type { Product, Service } from "../../utilities/types"
+import { Image } from "astro:assets"
+import logo from "../../assets/svg/logo.svg"
 
 export interface Props {
     currentPage: string
@@ -20,7 +22,9 @@ const services: Array<Service> = [
 
 <div id="barmenu" class="fixed top-0 w-full overflow-visible z-20 transition-all duration-300 bg-reciclacel_dark_blue">
     <div class="max-w-full xl:max-w-7xl 2xl:max-w-[95.5rem] 3xl:max-w-[120rem] mx-auto py-4 2xl:py-6 3xl:py-8 px-5 flex justify-between items-center">
-        <img class="h-12 2xl:h-16 3xl:h-20" src="/svg/logo.svg" alt="logo">
+        <a href="/" class="h-12 2xl:h-16 3xl:h-20 4xl:h-28">
+            <Image src={logo} alt="logo" style="height: 100%; width: 100%; object-fit: cover;" />
+        </a>
         <nav class="w-fit hidden lg:flex items-center">
             <ul class="flex gap-10">
                 <BarMenuElement link={{link: "/", text: "inicio"}} name="inicio" currentPage={currentPage} />

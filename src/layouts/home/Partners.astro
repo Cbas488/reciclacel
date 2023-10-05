@@ -1,19 +1,25 @@
 ---
 import TitleSection from "../../components/common/TitleSection.astro";
 import Container from "../common/Container.astro";
-
+import { Image } from "astro:assets";
+import sigma from "../../assets/img/partners/sigma.webp"
+import capistrano from "../../assets/img/partners/capistrano.webp"
+import elmexicano from "../../assets/img/partners/elmexicano.webp"
+import fud from "../../assets/img/partners/fud.webp"
+import omex from "../../assets/img/partners/omex.webp"
+import yoplait from "../../assets/img/partners/yoplait.webp"
 ---
 
 <Container subtitleText="nuestros socios comerciales" subtitleTextLineColor="#FFC630">
     <div class="w-full flex flex-col gap-4 sm:gap-9">
         <TitleSection text1="unión y " text2="confianza" textColor1="text-black" textColor2="text-reciclacel_green" />
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-10 w-full">
-            <div class="w-full flex justify-start lg:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/sigma.webp" alt="Sigma" /></div>
-            <div class="w-full flex justify-end md:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/capistrano.webp" alt="Capistrano" /></div>
-            <div class="w-full flex justify-start md:justify-end lg:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/elmexicano.webp" alt="El Méxicano" /></div>
-            <div class="w-full flex justify-end md:justify-start lg:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/fud.webp" alt="Fud" /></div>
-            <div class="w-full flex justify-start md:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/omex.webp" alt="Omex" /></div>
-            <div class="w-full flex justify-end lg:justify-center items-center"><img class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src="/img/partners/yoplait.webp" alt="Yoplait" /></div>
+            <div class="w-full flex justify-start lg:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={sigma} alt="Sigma" quality="low" /></div>
+            <div class="w-full flex justify-end md:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={capistrano} alt="Capistrano" quality="low" /></div>
+            <div class="w-full flex justify-start md:justify-end lg:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={elmexicano} alt="El Méxicano" quality="low" /></div>
+            <div class="w-full flex justify-end md:justify-start lg:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={fud} alt="Fud" quality="low" /></div>
+            <div class="w-full flex justify-start md:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={omex} alt="Omex" quality="low" /></div>
+            <div class="w-full flex justify-end lg:justify-center items-center"><Image class="w-full sm:w-3/4 lg:w-full h-auto object-contain" src={yoplait} alt="Yoplait" quality="low" /></div>
         </div>
     </div>
 </Container>

@@ -12,7 +12,7 @@ type Blog = {
     titleBodyBlue: string
     titleBodyGreen: string
     intro: string
-    image: string
+    image: ImageMetadata
     outro: string
 
 }

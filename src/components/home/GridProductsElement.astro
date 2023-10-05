@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets'
+
 export interface Props {
-    imageWhite: string
-    imageUse: string
+    imageWhite: ImageMetadata
+    imageUse: ImageMetadata
     name: string
     phrase: string
     product: string
@@ -12,8 +14,8 @@ const { imageWhite, imageUse, name, phrase, product } = Astro.props
 
 <div class="col-span-1 row-span-1 w-full h-full flex flex-col gap-3 2xl:gap-5">
     <div class="image_product relative w-full h-full">
-        <img class="image_hover absolute object-contain" src={imageUse} alt={name}>
-        <img src={imageWhite} alt={name}>
+        <Image src={imageUse} alt={name} class="image_hover absolute object-contain" quality="low" />
+        <Image src={imageWhite} alt={name} quality="low" />
     </div>
     <h2 class="text-4xl md:text-4xl 2xl:text-5xl first-letter:uppercase font-bold font-archivo text-white">{name}</h2>
     <div class="flex flex-col lg:flex-row gap-3 2xl:gap-5 justify-between items-start lg:items-center font-roboto text-lg md:text-2xl 2xl:text-3xl text-white">
